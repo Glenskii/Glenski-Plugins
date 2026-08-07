@@ -1,5 +1,5 @@
 ---
-name: vibe-security-audit
+name: python-web-app-security-audit
 description: "Run defensive pre-release security tests for Python web applications. Use for FastAPI, Django, Flask, and ASGI services: the common interface between Python web apps and servers. Tests authentication, authorization, hostile input, headers, CORS, cookies, rate limits, errors, and configuration to return evidence-backed findings and clear test boundaries."
 license: CC-BY-4.0
 metadata:

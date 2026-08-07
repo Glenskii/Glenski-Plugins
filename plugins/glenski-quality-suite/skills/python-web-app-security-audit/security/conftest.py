@@ -1,5 +1,5 @@
 # ============================================================
-# conftest.py  -  Shared fixtures for the vibe security audit suite
+# conftest.py  -  Shared fixtures for the Python web app security audit suite
 # All tests import from here. Do not duplicate fixtures elsewhere.
 # ============================================================
 
