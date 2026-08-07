@@ -1,6 +1,8 @@
 ---
 name: human-writer
 description: Your drafts often feel flat, repetitive, and overly polished, frequently drifting from the writer's original intent. This skill cleans up robotic phrasing, removes machine-written tropes, and sharpens flow while keeping your natural voice and message completely intact.
+metadata:
+  version: 1.1.0
 ---
 
 # Human Writer: Natural Voice Editing
