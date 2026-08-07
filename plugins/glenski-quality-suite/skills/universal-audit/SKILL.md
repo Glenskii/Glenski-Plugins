@@ -1,8 +1,8 @@
 ---
 name: universal-audit
-description: 'Formal, evidence-based software engineering audit producing a scored, gated release verdict. Use when asked for a "full audit", "production audit", "release audit", "formal audit", "audit report with a verdict", "is this safe to ship", customer-assurance review, or a re-audit against a prior report. Runs the Universal Software Engineering Audit Specification v2.2 end to end: intake, control selection, evidence ledger, deterministic scoring, release gates, machine-readable artifacts. NOT for quick cleanup passes or refactoring - use a lighter review flow for those.'
+description: 'Audit software releases with unforgiving standards. Use when soft approvals or incomplete scope could create deployment risk. Execute a full-lifecycle audit across fifteen core domains, including security, architecture, UX, and privacy. Apply deterministic scoring, evaluate hard evidence, and enforce release gates with hard-stop rules regardless of the overall score.'
 metadata:
-  version: 1.0.0
+  version: 1.0.1
 ---
 
 # Universal Audit - Formal Production Assurance
