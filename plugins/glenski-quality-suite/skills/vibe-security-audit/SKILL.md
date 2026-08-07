@@ -6,7 +6,7 @@ license: CC-BY-4.0
 
 # PYTHON WEB APP SECURITY AUDIT
 
-**Built by:** Glen E. Grant (glenegrant.com) **Purpose:** A runnable security check for Python web applications built with AI coding tools. **Use with:** FastAPI, Flask, Django, and similar Python web applications that can run through ASGI. **License:** CC BY 4.0. Share freely, credit appreciated. **Tags:** `#glenski` `#vibe-security` `#owasp` `#fastapi` `#security` `#pytest`
+**Built by:** Glen E. Grant (glenegrant.com) **Purpose:** A runnable security check for Python web applications built with code-generation tools. **Use with:** FastAPI, Flask, Django, and similar Python web applications that can run through ASGI. **License:** CC BY 4.0. Share freely, credit appreciated. **Tags:** `#glenski` `#vibe-security` `#owasp` `#fastapi` `#security` `#pytest`
 
 ---
 
@@ -14,7 +14,7 @@ license: CC-BY-4.0
 
 Vibe-coded apps ship fast. Security does not ship with them by default.
 
-AI coding tools generate working code. They do not generate secure code. The gap between "it works" and "it is safe" is where real applications get compromised. This suite closes that gap with deterministic, runnable tests covering the full OWASP attack surface.
+Code-generation tools can produce working code. They do not produce secure code by default. The gap between "it works" and "it is safe" is where real applications get compromised. This suite closes that gap with deterministic, runnable tests covering the full OWASP attack surface.
 
 **Plain-language scope:** This is for Python web apps. ASGI is the technical interface that lets the tests talk to FastAPI, Django, Flask through an ASGI adapter, and similar applications without starting a public server. It is not for Node, PHP, WordPress, native mobile, or desktop apps.
 

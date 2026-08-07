@@ -6,7 +6,7 @@ license: CC-BY-4.0
 
 ## THE PROBLEM THIS SOLVES
 
-AI tools write for Chrome. Chrome is not the web. iOS Safari runs on every iPhone and iPad regardless of which browser the user installs - Chrome on iOS is WebKit under the hood. The 100vh bug, safe area insets, input zoom at under 16px, hover states that never fire on touch, backdrop-filter without -webkit-prefix - none of these surface in Chrome DevTools. DevTools lie. Real devices don't.
+Code generators often target Chrome first. Chrome is not the web. iOS Safari runs on every iPhone and iPad regardless of which browser the user installs. Chrome on iOS is WebKit under the hood. The 100vh bug, safe area insets, input zoom at under 16px, hover states that never fire on touch, and backdrop-filter without the -webkit-prefix do not surface in Chrome DevTools. DevTools lie. Real devices do not.
 
 v1.0 of this skill was a useful checklist. Experienced engineers can read it and audit manually. That is not enough. v2.1 is an executable compliance runner: two layers, defined execution order, Playwright evidence, and a hard compliance gate that outputs BLOCKED, REVIEW REQUIRED, or PASS. The audit either runs or it explains exactly why it cannot.
 

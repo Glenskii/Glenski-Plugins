@@ -29,7 +29,7 @@ Rules that follow from the tier:
 | **P3** Data-Sensitive | Handling health, finance, legal, identity, or regulated data | Security/privacy, architecture/data, reliability/recovery, deployment/supply chain |
 | **P4** Desktop/Local Utility | A local-first desktop tool or offline utility | Quality/correctness, architecture/data, deployment/supply chain, reliability/recovery |
 | **P5** Platform/API | An API, developer platform, or infrastructure service | Security/privacy, reliability/ops, architecture/data, performance/capacity |
-| **P6** AI-Assisted | Built around generative AI, agents, retrieval, or automated decisions | Security/privacy, quality/correctness, architecture/data, reliability/ops |
+| **P6** Model-Assisted | Built around generative models, agents, retrieval, or automated decisions | Security/privacy, quality/correctness, architecture/data, reliability/ops |
 
 Modifiers that raise scrutiny (record them in the manifest): public administration,
 children or vulnerable users, safety impact, high transaction value, multi-tenancy,
@@ -46,7 +46,7 @@ touching weights.
 
 - No web UI → A11Y-* and SEC-WEB/CORS/CSRF/XSS controls are usually NOT APPLICABLE
   (justify each).
-- No AI features → AI-* controls NOT APPLICABLE.
+- No model features means MOD-* controls are NOT APPLICABLE.
 - No mobile target → MOB-*; no desktop target → DESK-*.
 - Single-tenant by design → SEC-TENANT-001 and DATA-TENANT-001 may be NA, but ownership
   isolation between users usually still applies.

@@ -64,7 +64,7 @@ async def test_sqli_payload_rejected_in_login(client, payload):
     """
     SQL injection payloads must not authenticate the attacker.
     Classic ' OR '1'='1 bypasses apps that build queries with string concatenation.
-    AI-generated ORM code is usually safe, but raw query fallbacks are not.
+    Generated ORM code is usually safe, but raw query fallbacks are not.
     """
     res = await client.post(LOGIN, json={
         "username": payload,

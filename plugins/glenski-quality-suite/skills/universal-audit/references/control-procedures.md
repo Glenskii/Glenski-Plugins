@@ -61,7 +61,7 @@ is UNVERIFIED, not PASS.
   data in error output.
 - **CODE-TIME-001 / CODE-CONC-001**: naive datetime usage, timezone assumptions, locale
   parsing; shared mutable state, check-then-act races, idempotency of handlers.
-- **CODE-AI-001**: nonexistent API references (verify imports resolve and methods exist),
+- **CODE-MOD-001**: nonexistent API references (verify imports resolve and methods exist),
   placeholder branches, tests that assert the implementation rather than the requirement.
 
 ## SUP / CICD / INF - Supply chain, pipeline, infrastructure
@@ -106,7 +106,7 @@ is UNVERIFIED, not PASS.
   build; record environment. Bundle size for web frontends.
 - **PERF-CAP-001 / PERF-DEGRADE-001**: ⚠ authorized representative load only; otherwise
   operational evidence or UNVERIFIED. Never load-test production without written RoE.
-- **COST-ABUSE-001**: user-triggerable expensive work (AI calls, exports, emails, media
+- **COST-ABUSE-001**: user-triggerable expensive work (model calls, exports, emails, media
   processing) has quotas/budgets; test the abuse path with limits in place.
 
 ## QA / A11Y / UX / I18N
@@ -121,14 +121,14 @@ is UNVERIFIED, not PASS.
 - **I18N-***: boundary tests with long strings, non-Latin scripts, RTL where declared,
   plural rules, date/number formats per supported locale.
 
-## DESK / MOB / AI / DOC / RET / ADM
+## DESK / MOB / MOD / DOC / RET / ADM
 
 - **DESK-***: clean-machine install/update/uninstall; signing verified; update channel
   integrity (⚠ attempt a tampered update in a test rig); IPC and protocol-handler input
   handling; local secret storage (OS keychain, not plaintext).
 - **MOB-***: manifest permissions vs need; secure storage APIs; lifecycle interruption
   and deep-link tests on device or emulator.
-- **AI-***: model output validated before consequential actions; ⚠ authorized prompt
+- **MOD-***: model output validated before consequential actions; ⚠ authorized prompt
   injection tests through untrusted content channels; tenant/data boundaries in prompt
   assembly and retrieval; evaluation dataset with thresholds and current results;
   fallback and budget behavior on provider failure.

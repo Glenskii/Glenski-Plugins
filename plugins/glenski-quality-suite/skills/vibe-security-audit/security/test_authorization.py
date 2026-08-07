@@ -26,7 +26,7 @@ async def test_idor_cannot_access_other_user_resource(auth_client):
     resource by guessing or incrementing an ID in the URL.
 
     This is the #1 API vulnerability class. Vibe-coded apps almost universally
-    miss this because AI generates CRUD without ownership checks.
+    miss this because code generators can create CRUD without ownership checks.
 
     Test accesses IDs 1–5. If your test user owns any of these, adjust
     TEST_IDOR_ROUTE_TEMPLATE or test against IDs outside the test account range.

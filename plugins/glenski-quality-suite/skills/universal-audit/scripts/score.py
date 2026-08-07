@@ -90,11 +90,11 @@ EXCEPTION_MAP = {
     "DESK-UPDATE-001": "deployment_supply_chain",
     "MOB-PERM-001": "security_privacy",
     "MOB-LIFE-001": "quality_correctness",
-    "AI-BOUND-001": "security_privacy",
-    "AI-INJECT-001": "security_privacy",
-    "AI-DATA-001": "security_privacy",
-    "AI-EVAL-001": "quality_correctness",
-    "AI-FAIL-001": "reliability_operations",
+    "MOD-BOUND-001": "security_privacy",
+    "MOD-INJECT-001": "security_privacy",
+    "MOD-DATA-001": "security_privacy",
+    "MOD-EVAL-001": "quality_correctness",
+    "MOD-FAIL-001": "reliability_operations",
 }
 
 PREFIX_MAP = [
