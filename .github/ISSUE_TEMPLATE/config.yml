@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Plugin support and questions
+    url: https://github.com/Glenskii/Glenski-Plugins/blob/main/SUPPORT.md
+    about: Read the safe support and reporting guidance before opening an issue.
