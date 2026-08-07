@@ -1,10 +1,10 @@
 # ============================================================
-# test_rate_limit.py — Rate limiting and abuse resistance
+# test_rate_limit.py  -  Rate limiting and abuse resistance
 #
 # Prevents: credential stuffing, brute force auth attacks,
 # scraping, resource exhaustion, API abuse.
 #
-# OWASP API Security: API4 — Unrestricted Resource Consumption
+# OWASP API Security: API4  -  Unrestricted Resource Consumption
 # ============================================================
 
 import os
@@ -47,7 +47,7 @@ async def test_login_rate_limit_enforced(client):
 @pytest.mark.asyncio
 async def test_rate_limit_returns_429_not_500(client):
     """
-    Rate limit responses must return 429 — not 500 (unhandled) or 200 (silent pass).
+    Rate limit responses must return 429  -  not 500 (unhandled) or 200 (silent pass).
     Some misconfigured limiters silently pass requests after the window.
     """
     statuses = set()
@@ -62,7 +62,7 @@ async def test_rate_limit_returns_429_not_500(client):
             break
 
     assert 500 not in statuses, (
-        "Rate limiter returned 500 — unhandled exception on threshold breach"
+        "Rate limiter returned 500  -  unhandled exception on threshold breach"
     )
 
 
@@ -84,13 +84,13 @@ async def test_rate_limit_includes_retry_after_header(client):
             has_retry = "retry-after" in res.headers or "x-ratelimit-reset" in res.headers
             if not has_retry:
                 pytest.skip(
-                    "429 returned but no Retry-After header — "
+                    "429 returned but no Retry-After header  -  "
                     "consider adding for client backoff support"
                 )
             break
 
     if not hit_429:
-        pytest.skip("Rate limit not triggered in test window — increase THRESHOLD or requests")
+        pytest.skip("Rate limit not triggered in test window  -  increase THRESHOLD or requests")
 
 
 @pytest.mark.asyncio
@@ -114,7 +114,7 @@ async def test_concurrent_requests_rate_limited(client):
     ]
 
     assert 429 in statuses, (
-        "Concurrent burst not rate limited — "
+        "Concurrent burst not rate limited  -  "
         "rate limiter may only check sequential requests"
     )
 
@@ -122,7 +122,7 @@ async def test_concurrent_requests_rate_limited(client):
 @pytest.mark.asyncio
 async def test_api_endpoint_rate_limited(client):
     """
-    Public API endpoints must also be rate limited — not just auth routes.
+    Public API endpoints must also be rate limited  -  not just auth routes.
     Unprotected endpoints can be scraped or used for enumeration.
     """
     PUBLIC = route("TEST_PUBLIC_ROUTE", "/")
@@ -136,6 +136,6 @@ async def test_api_endpoint_rate_limited(client):
 
     if not hit_429:
         pytest.skip(
-            "Public route rate limit not triggered — "
+            "Public route rate limit not triggered  -  "
             "verify rate limiting is configured on public endpoints"
         )

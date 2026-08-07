@@ -1,5 +1,5 @@
 # ============================================================
-# conftest.py — Shared fixtures for the vibe security audit suite
+# conftest.py  -  Shared fixtures for the vibe security audit suite
 # All tests import from here. Do not duplicate fixtures elsewhere.
 # ============================================================
 
@@ -17,7 +17,7 @@ def load_app():
     """
     Dynamically import the ASGI app from APP_IMPORT_PATH.
     Format: module.path:app_variable
-    Fails loudly if env var is missing — no silent misconfiguration.
+    Fails loudly if env var is missing  -  no silent misconfiguration.
     """
     import_path = os.getenv("APP_IMPORT_PATH")
     if not import_path or ":" not in import_path:
@@ -57,13 +57,13 @@ async def auth_client():
         transport=ASGITransport(app=app),
         base_url="http://test"
     ) as ac:
-        # Obtain auth token — adjust payload keys to match your app
+        # Obtain auth token  -  adjust payload keys to match your app
         response = await ac.post(login_route, json={
             "username": os.getenv("TEST_USERNAME"),
             "password": os.getenv("TEST_PASSWORD"),
         })
         assert response.status_code == 200, (
-            f"Auth fixture login failed: {response.status_code} — "
+            f"Auth fixture login failed: {response.status_code}  -  "
             "check TEST_USERNAME / TEST_PASSWORD in .env.test"
         )
 
