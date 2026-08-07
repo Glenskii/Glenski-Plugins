@@ -1,5 +1,5 @@
 # ============================================================
-# test_authorization.py — IDOR, admin boundary, privilege escalation
+# test_authorization.py  -  IDOR, admin boundary, privilege escalation
 #
 # Prevents: horizontal privilege escalation (user A reads user B's data),
 # vertical privilege escalation (regular user accesses admin functions),
@@ -17,7 +17,7 @@ ADMIN = route("TEST_ADMIN_ROUTE", "/api/admin")
 PROTECTED = route("TEST_PROTECTED_ROUTE", "/api/me")
 
 
-# ── IDOR — Broken Object Level Authorization ──────────────────────────────────
+# ── IDOR  -  Broken Object Level Authorization ──────────────────────────────────
 
 @pytest.mark.asyncio
 async def test_idor_cannot_access_other_user_resource(auth_client):
@@ -41,7 +41,7 @@ async def test_idor_cannot_access_other_user_resource(auth_client):
         # 403, 404 are acceptable (ownership check or obscured IDs)
         assert res.status_code in (403, 404), (
             f"IDOR: auth_client accessed resource ID {target_id} "
-            f"and received {res.status_code} — ownership check may be missing"
+            f"and received {res.status_code}  -  ownership check may be missing"
         )
 
 
@@ -82,7 +82,7 @@ async def test_regular_user_cannot_access_admin_route(auth_client):
     """
     res = await auth_client.get(ADMIN)
     assert res.status_code in (401, 403), (
-        f"Regular user accessed admin route — returned {res.status_code}"
+        f"Regular user accessed admin route  -  returned {res.status_code}"
     )
 
 
@@ -94,14 +94,14 @@ async def test_admin_user_can_access_admin_route(admin_client):
     """
     res = await admin_client.get(ADMIN)
     assert res.status_code == 200, (
-        f"Admin user denied admin route — returned {res.status_code}"
+        f"Admin user denied admin route  -  returned {res.status_code}"
     )
 
 
 @pytest.mark.asyncio
 async def test_unauthenticated_cannot_access_admin_route(client):
     """
-    Admin routes must reject unauthenticated access — not just non-admin users.
+    Admin routes must reject unauthenticated access  -  not just non-admin users.
     """
     res = await client.get(ADMIN)
     assert res.status_code in (401, 403)
@@ -117,7 +117,7 @@ async def test_cannot_escalate_via_role_parameter(auth_client):
     """
     res = await auth_client.get(ADMIN, params={"role": "admin"})
     assert res.status_code in (401, 403), (
-        "Role escalation via query param succeeded — server accepted client role claim"
+        "Role escalation via query param succeeded  -  server accepted client role claim"
     )
 
 
@@ -136,8 +136,8 @@ async def test_cannot_escalate_via_body_role(auth_client):
 async def test_cannot_assign_admin_flag_on_registration(client):
     """
     Mass assignment: attacker includes is_admin or role fields in registration payload.
-    Server must ignore or reject undeclared fields — not bind them to the user model.
-    OWASP API Security: API6 — Mass Assignment
+    Server must ignore or reject undeclared fields  -  not bind them to the user model.
+    OWASP API Security: API6  -  Mass Assignment
     """
     register_route = route("TEST_AUTH_REGISTER_ROUTE", "/auth/register")
     res = await client.post(register_route, json={
