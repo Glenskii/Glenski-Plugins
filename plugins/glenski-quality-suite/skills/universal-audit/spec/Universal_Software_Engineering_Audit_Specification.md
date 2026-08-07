@@ -2,7 +2,7 @@
 
 **Version:** 2.2
 **Status:** Production audit standard
-**Purpose:** Evidence-based, full-lifecycle software engineering audit standard for human and AI-assisted auditors
+**Purpose:** Evidence-based, full-lifecycle software engineering audit standard for human and automated-tool-assisted auditors
 **Updated:** 2026-07-10
 **Supersedes:** Version 2.1
 **License:** CC BY 4.0 - free to use, adapt, and redistribute with attribution
@@ -81,7 +81,7 @@ Use the following perspectives as analytical lenses:
 12. Privacy, data governance, and compliance
 13. Supply-chain and dependency assurance
 14. Desktop, mobile, or embedded engineering when applicable
-15. AI system assurance when applicable
+15. Model-system assurance when applicable
 
 These perspectives are not separate reports. Maintain one evidence ledger, consolidate duplicate observations, and produce one coherent set of findings. A finding affecting multiple disciplines must be recorded once and cross-tagged.
 
@@ -182,7 +182,7 @@ Stop immediately when authorization is exceeded, a test may cause material harm,
 - CI/CD and release process
 - External APIs, webhooks, identity providers, and vendors
 - Desktop/mobile packaging and update model where applicable
-- AI models, providers, tools, data sources, and retrieval systems where applicable
+- Model providers, tools, data sources, and retrieval systems where applicable
 
 ### 6.3 Data and Risk Context
 
@@ -444,11 +444,11 @@ Review readability, naming, type safety, error handling, resource cleanup, concu
 
 Differentiate defects from stylistic preferences. A style preference is not a risk finding unless it creates a demonstrated maintenance, correctness, or security consequence.
 
-### 11.11 AI-Generated Code Risks
+### 11.11 Generated-Code Risks
 
 Review for fabricated APIs, nonexistent guarantees, placeholder behavior, copy-pasted vulnerabilities, needless wrappers, excessive configuration, duplicate helpers, misleading comments, magic constants, unused code, prompt duplication, cargo-cult security, weak failure handling, and tests that only restate implementation.
 
-Do not label code as AI-generated without reliable provenance. Report the observable engineering defect, not a guess about authorship.
+Do not label code as machine-generated without reliable provenance. Report the observable engineering defect, not a guess about authorship.
 
 ### 11.12 Dependencies and Software Supply Chain
 
@@ -557,7 +557,7 @@ When applicable, review installer and uninstaller behavior, signing, reputation,
 
 When applicable, review platform permissions, secure storage, transport, deep links, intents, background work, screenshots, backups, rooted/jailbroken device assumptions, app signing, store release, updates, privacy declarations, battery/network use, and lifecycle interruption.
 
-### 11.27 AI and Automated Decision Systems
+### 11.27 Model and Automated Decision Systems
 
 When applicable, review model and provider inventory, prompt and tool boundaries, untrusted-content handling, prompt injection, data leakage, tenant isolation, retrieval permissions, output validation, human review, hallucination consequences, evaluation coverage, model/version drift, fallback behavior, cost controls, abuse controls, auditability, retention, intellectual-property risks, and provider outages.
 
@@ -613,7 +613,7 @@ Select one primary profile and any applicable modifiers before scoring.
 | P3 Data-Sensitive | Health, finance, legal, identity, regulated or highly confidential systems | Security/privacy, architecture/data integrity, reliability/recovery, deployment/supply chain |
 | P4 Desktop/Local Utility | Local-first desktop tools and offline utilities | Quality/correctness, architecture/data integrity, deployment/supply chain, reliability/recovery |
 | P5 Platform/API | APIs, developer platforms, infrastructure services | Security/privacy, reliability/operations, architecture/data integrity, performance/capacity |
-| P6 AI-Assisted | Products with generative AI, agents, retrieval, or automated decisions | Security/privacy, quality/correctness, architecture/data integrity, reliability/operations |
+| P6 Model-Assisted | Products with generative models, agents, retrieval, or automated decisions | Security/privacy, quality/correctness, architecture/data integrity, reliability/operations |
 
 Modifiers include public administration, children or vulnerable users, safety impact, high transaction value, multi-tenancy, administrator concentration, irreversible operations, internationalization, and contractual accessibility obligations.
 
@@ -1070,13 +1070,13 @@ Every control scores in exactly one of the nine categories in Section 13.1. Mapp
 | GOV-THREAT-001 | Security and privacy |
 | INF-IAM, INF-NET, INF-TLS, INF-ENV | Security and privacy |
 | DESK-LOCAL-001, MOB-PERM-001 | Security and privacy |
-| AI-BOUND-001, AI-INJECT-001, AI-DATA-001 | Security and privacy |
+| MOD-BOUND-001, MOD-INJECT-001, MOD-DATA-001 | Security and privacy |
 | REL-*, OPS-*, BAK-*, DR-* | Reliability, recovery, and operations |
-| AI-FAIL-001 | Reliability, recovery, and operations |
+| MOD-FAIL-001 | Reliability, recovery, and operations |
 | GOV-RISK-001 | Reliability, recovery, and operations |
 | ARC-*, DATA-* | Architecture and data integrity |
 | CODE-*, QA-* | Quality engineering and correctness |
-| AI-EVAL-001, MOB-LIFE-001 | Quality engineering and correctness |
+| MOD-EVAL-001, MOB-LIFE-001 | Quality engineering and correctness |
 | SUP-*, CICD-* | Deployment and supply chain |
 | INF-IAC-001, INF-PATCH-001 | Deployment and supply chain |
 | DESK-INSTALL-001, DESK-UPDATE-001 | Deployment and supply chain |
@@ -1148,7 +1148,7 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 | CODE-ERR-001 | Errors are handled safely without silent corruption or sensitive leakage | R | C2 | Code paths and induced safe failures verified |
 | CODE-TIME-001 | Time, locale, encoding, and identifier assumptions are controlled | S | C2 | Boundary tests cover applicable zones, locales, and encodings |
 | CODE-CONC-001 | Concurrency and duplicate execution preserve critical invariants | S | C3 | Atomic/idempotent design and representative concurrency tests |
-| CODE-AI-001 | Generated or assisted code contains no material placeholder or fabricated behavior | S | C2 | Targeted inspection plus build/test/runtime correlation |
+| CODE-MOD-001 | Generated or assisted code contains no material placeholder or fabricated behavior | S | C2 | Targeted inspection plus build/test/runtime correlation |
 | SUP-DEP-001 | Production dependencies are locked, inventoried, and vulnerability-assessed | R | C3 | Lockfile/SBOM and validated SCA results tied to release artifact |
 | SUP-DEP-002 | Material dependency findings are assessed for reachability and exposure | S | C2 | Manual triage links vulnerable paths to actual use or non-use |
 | SUP-LIC-001 | Dependency licenses are compatible with intended distribution | S | C2 | Current inventory and reviewed license obligations |
@@ -1226,7 +1226,7 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 | I18N-TEXT-001 | User content supports required language, encoding, plural, and expansion behavior | S | C2 | Locale tests and representative translated layouts |
 | I18N-FMT-001 | Dates, time zones, numbers, names, addresses, and sorting behave for supported locales | S | C2 | Boundary tests across declared locales |
 
-### A.9 Platform-Specific, AI, Documentation, and Retirement
+### A.9 Platform-Specific, Model, Documentation, and Retirement
 
 | Control ID | Objective | Tier | Crit. | Minimum PASS evidence |
 |---|---|---:|---:|---|
@@ -1235,11 +1235,11 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 | DESK-LOCAL-001 | Local files, secrets, IPC, and protocol handlers resist untrusted input | S | C3 | Code/config and representative boundary tests |
 | MOB-PERM-001 | Mobile permissions and secure storage are least privilege | R | C3 | Manifest/config, code paths, and device tests |
 | MOB-LIFE-001 | Interruption, backgrounding, deep links, and backups preserve safety | S | C2 | Device lifecycle and link tests |
-| AI-BOUND-001 | Model output is treated as untrusted at consequential boundaries | R | C3 | Validation/authorization code and adversarial tests |
-| AI-INJECT-001 | Untrusted content cannot override protected instructions or tool authority | S | C3 | Prompt/tool boundary review and authorized injection tests |
-| AI-DATA-001 | Prompts, retrieval, logs, and providers preserve data and tenant boundaries | R | C3 | Data-flow/config review and cross-context negative tests |
-| AI-EVAL-001 | Model behavior is evaluated against material tasks and harms | S | C2 | Versioned dataset, metrics, thresholds, and current results |
-| AI-FAIL-001 | Provider/model failure, drift, cost, and uncertainty have bounded behavior | D | C2 | Fallback, monitoring, budget, and induced failure evidence |
+| MOD-BOUND-001 | Model output is treated as untrusted at consequential boundaries | R | C3 | Validation/authorization code and adversarial tests |
+| MOD-INJECT-001 | Untrusted content cannot override protected instructions or tool authority | S | C3 | Prompt/tool boundary review and authorized injection tests |
+| MOD-DATA-001 | Prompts, retrieval, logs, and providers preserve data and tenant boundaries | R | C3 | Data-flow/config review and cross-context negative tests |
+| MOD-EVAL-001 | Model behavior is evaluated against material tasks and harms | S | C2 | Versioned dataset, metrics, thresholds, and current results |
+| MOD-FAIL-001 | Provider/model failure, drift, cost, and uncertainty have bounded behavior | D | C2 | Fallback, monitoring, budget, and induced failure evidence |
 | DOC-SETUP-001 | Build, setup, configuration, and deployment documentation matches the release | R | C2 | Independent execution or sampled verification |
 | DOC-OPS-001 | Operations, rollback, recovery, security, and support procedures are usable | S | C3 | Current runbooks and exercise/incident evidence |
 | RET-DATA-001 | Closure, export, deletion, retention, and legal holds are controlled | S | C2 | Procedure plus authorized lifecycle test |
