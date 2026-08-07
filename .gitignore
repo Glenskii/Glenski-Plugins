@@ -1,0 +1,6 @@
+# Generated Python files
+__pycache__/
+*.py[cod]
+
+# Test and tool caches
+.pytest_cache/
