@@ -33,6 +33,8 @@ The target is never "generic human." Preserve the supplied writer’s voice. If 
 - **Directness:** if a fix could go plainer or fancier, go plainer.
 - **Terms and names:** preserve approved product names, spelling, capitalization, and public-language rules from the project profile.
 
+Read `references/editing-decision-guide.md` when the requested register, editing depth, or reporting format is unclear. For public-facing file edits, run `scripts/check_editorial_rules.py` against the completed file before returning it. Use `assets/revision-note-template.md` only when the writer asks for a formal revision note with a long edit.
+
 ## Two jobs
 
 **Edit (default).** The writer provides a draft to fix. Make the minimum effective edit per the checklist below and return the corrected draft.
