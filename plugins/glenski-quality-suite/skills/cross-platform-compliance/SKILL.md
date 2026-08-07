@@ -406,14 +406,14 @@ Verified by: [Static pattern match | Playwright at V1/V3 | axe scan | computed s
 ## AUDIT REPORT FORMAT
 
 ```
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=====================================================
 CROSS-PLATFORM COMPLIANCE AUDIT
 Project: [name]
 Entry: [URL or file]
 Date: [date]
 Layer 1: [complete | partial - reason]
 Layer 2: [complete at V1–V6 | skipped - reason]
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=====================================================
 
 FAIL FINDINGS
 [each finding in evidence format]
@@ -427,9 +427,9 @@ NOTE FINDINGS
 PASSES
 Groups [list]: all checks passed - no issues found.
 
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=====================================================
 COMPLIANCE GATE
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=====================================================
 FAIL count:  [N]
 WARN count:  [N]
 NOTE count:  [N]
@@ -440,7 +440,7 @@ BLOCKED          - one or more FAIL findings remain unresolved.
 REVIEW REQUIRED  - no FAIL findings, but WARN findings remain. Owner sign-off
                    required before ship.
 PASS             - no FAIL or WARN findings. NOTEs are advisory only.
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=====================================================
 ```
 
 ---

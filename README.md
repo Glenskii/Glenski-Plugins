@@ -1,6 +1,8 @@
 # Glenski Assurance Suite
 
-Portable Codex skills for practical release assurance.
+Open-source developer skills for practical release assurance.
+
+This repository is a portable [Agent Plugins v1](https://agent-plugins.org/) package and a native Codex plugin. The same skill files can be inspected, installed, and used by compatible clients without adding a hosted service, a public MCP endpoint, or access to private systems.
 
 The current suite includes four skills:
 
@@ -9,17 +11,20 @@ The current suite includes four skills:
 - Python Web App Security Audit: defensive checks for FastAPI, Flask, and Django applications.
 - Human Writer: minimal, natural-voice editing of supplied copy.
 
-## Install locally
+## Install in Codex
 
-Clone this repository, then add its marketplace to Codex:
+Add the public GitHub marketplace, then install the suite:
 
 ```powershell
-git clone https://github.com/Glenskii/Glenski-Plugins.git
-codex plugin marketplace add .\Glenski-Plugins
+codex plugin marketplace add Glenskii/Glenski-Plugins --ref main
 codex plugin add glenski-quality-suite@glenski-local
 ```
 
 Start a new Codex task after installation so the skills are loaded.
+
+## Use with another compatible client
+
+The portable manifest is at [`plugins/glenski-quality-suite/plugin.json`](plugins/glenski-quality-suite/plugin.json). A compatible client can load that directory and discover the skills in its `skills/` folder. Installation, permissions, updates, and user interface remain the responsibility of that client.
 
 ## Privacy and scope
 
