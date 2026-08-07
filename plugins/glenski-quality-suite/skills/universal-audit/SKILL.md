@@ -1,6 +1,8 @@
 ---
 name: universal-audit
 description: 'Formal, evidence-based software engineering audit producing a scored, gated release verdict. Use when asked for a "full audit", "production audit", "release audit", "formal audit", "audit report with a verdict", "is this safe to ship", customer-assurance review, or a re-audit against a prior report. Runs the Universal Software Engineering Audit Specification v2.2 end to end: intake, control selection, evidence ledger, deterministic scoring, release gates, machine-readable artifacts. NOT for quick cleanup passes or refactoring - use a lighter review flow for those.'
+metadata:
+  version: 1.0.0
 ---
 
 # Universal Audit - Formal Production Assurance
@@ -22,7 +24,7 @@ Core discipline, non-negotiable:
 4. Assign the audit ID: `AUD-[PRODUCT]-[YYYYMMDD]-[SEQ]`.
 5. Rules of Engagement: this skill defaults to **passive, read-only inspection**. No load tests, no destructive actions, no auth bypass attempts, no tests against systems the operator does not own. Active testing requires the RoE template completed and explicit operator authorization recorded in the manifest.
 6. Gate controls: evaluate `GOV-SCOPE-001` and `GOV-ROE-001` first. If either cannot PASS, the engagement is advisory only - say so now, not in the report.
-7. Create the artifact directory: `audits/<audit-id>/` in the project root (or an operator-specified location).
+7. Create the artifact directory: `audits/<audit-id>/` in the project root (or an operator-specified location). Run `scripts/init_audit_artifacts.py --audit-id <audit-id> --output audits/<audit-id>` to create the initial manifest from `assets/audit-manifest-template.json`. It refuses to overwrite an existing directory.
 
 ## Phase 1 - Control Selection
 
