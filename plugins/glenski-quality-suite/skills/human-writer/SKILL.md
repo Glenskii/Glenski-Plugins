@@ -1,8 +1,9 @@
 ---
 name: human-writer
 description: Your drafts often feel flat, repetitive, and overly polished, frequently drifting from the writer's original intent. This skill cleans up robotic phrasing, removes machine-written tropes, and sharpens flow while keeping your natural voice and message completely intact.
+license: MIT
 metadata:
-  version: 1.1.0
+  version: 1.2.0
 ---
 
 # Human Writer: Natural Voice Editing
@@ -35,7 +36,7 @@ The target is never "generic human." Preserve the supplied writer’s voice. If 
 - **Directness:** if a fix could go plainer or fancier, go plainer.
 - **Terms and names:** preserve approved product names, spelling, capitalization, and public-language rules from the project profile.
 
-Read `references/editing-decision-guide.md` when the requested register, editing depth, or reporting format is unclear. For public-facing file edits, run `scripts/check_editorial_rules.py` against the completed file before returning it. Use `assets/revision-note-template.md` only when the writer asks for a formal revision note with a long edit.
+Read `references/editing-decision-guide.md` when the requested register, editing depth, or reporting format is unclear. Read `references/voice-preservation-checklist.md` before a substantial edit or when a draft has a distinctive personal voice. For public-facing file edits, run `scripts/check_editorial_rules.py` against the completed file before returning it. Use `assets/revision-note-template.md` only when the writer asks for a formal revision note with a long edit.
 
 ## Two jobs
 
@@ -51,7 +52,7 @@ This is an editorial tool for drafts the user has authority to edit. It is not a
 2. **Note the voice before editing it.** Identify three to five traits that make the piece distinct: word choices, bluntness, sentence length, humour, asides, or level of polish. Keep this as an internal check. If a fix would sand off one of these traits, it is a rewrite. Do not make it.
 3. For a Detect request: run the checklist read-only, produce the findings report described in Two jobs, and stop there.
 4. For an Edit request: pass over the piece against the checklist. For each hit, apply the minimal FIX or record the FLAG. Never rewrite a whole sentence when a word swap does it.
-5. **Self-check against `eval.md`.** Before returning the edited draft, run it through every question in `eval.md` in this skill's folder. If any check fails, fix the draft and check again. This catches what step 4 misses: a replacement word that's itself on the banned list, a repaired sentence that now ends in an -ing tail, a long dash typed reflexively, or a voice trait from step 2 that got flattened.
+5. **Self-check against `eval.md`.** Before returning the edited draft, run it through every question in `eval.md` in this skill's folder. Read `docs/revision-acceptance-guide.md` when deciding whether a substantial revision is ready to return. If any check fails, fix the draft and check again. This catches what step 4 misses: a replacement word that's itself on the banned list, a repaired sentence that now ends in an -ing tail, a long dash typed reflexively, or a voice trait from step 2 that got flattened.
 6. Return the corrected text as the primary output. Keep the writer's formatting, including line breaks and casing, except where the format itself is the pattern. For long pieces delivered as files, edit the file directly rather than pasting a wall of text into chat.
 7. Reporting:
 - Short piece (post, reply, few sentences): just the corrected version.
