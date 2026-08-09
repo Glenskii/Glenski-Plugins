@@ -3,7 +3,7 @@ name: python-web-app-security-audit
 description: "Run defensive pre-release security tests for Python web applications. Use for FastAPI, Django, Flask, and ASGI services: the common interface between Python web apps and servers. Tests authentication, authorization, hostile input, headers, CORS, cookies, rate limits, errors, and configuration to return evidence-backed findings and clear test boundaries."
 license: MIT
 metadata:
-  version: 1.0.1
+  version: 1.0.2
 ---
 
 # Python Web App Security Audit
@@ -48,6 +48,7 @@ Do not represent a passing run as a penetration test or proof of production secu
 4. Inspect every failure before assigning a release gate.
 5. Keep application-layer findings separate from infrastructure findings.
 6. Report both verified results and test boundaries.
+7. Do not add checks that create accounts, alter records, or issue destructive database commands. This bundled suite is non-destructive.
 
 ## Report the result
 
@@ -75,3 +76,5 @@ Use [the report template](assets/security-audit-report-template.md) and [release
 ## Boundaries
 
 This skill does not replace manual security assessment, dependency scanning, production HTTPS verification, WAF validation, or dynamic scanning. Add an application-specific CSRF test when state-changing requests use cookie authentication.
+
+The bundled suite does not create accounts, delete records, or execute schema-changing database commands. Assess any registration or other write flow only in an application-owned test suite with a disposable database and explicit cleanup.

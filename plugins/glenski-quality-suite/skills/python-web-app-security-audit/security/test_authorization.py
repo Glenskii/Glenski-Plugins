@@ -128,34 +128,3 @@ async def test_cannot_escalate_via_body_role(auth_client):
     """
     res = await auth_client.post(ADMIN, json={"role": "admin", "is_admin": True})
     assert res.status_code in (401, 403, 405)
-
-
-# ── Mass assignment protection ────────────────────────────────────────────────
-
-@pytest.mark.asyncio
-async def test_cannot_assign_admin_flag_on_registration(client):
-    """
-    Mass assignment: attacker includes is_admin or role fields in registration payload.
-    Server must ignore or reject undeclared fields  -  not bind them to the user model.
-    OWASP API Security: API6  -  Mass Assignment
-    """
-    register_route = route("TEST_AUTH_REGISTER_ROUTE", "/auth/register")
-    res = await client.post(register_route, json={
-        "username": "hacker_test_user",
-        "password": "Hacker1234!",
-        "email": "hacker@example.com",
-        "is_admin": True,
-        "role": "admin",
-        "permissions": ["read", "write", "admin"]
-    })
-
-    # Registration may succeed (201) or reject unknown fields (400/422)
-    # What must NOT happen: 201 with admin flag applied
-    if res.status_code == 201:
-        body = res.json()
-        assert body.get("is_admin") is not True, (
-            "Mass assignment: is_admin=True was accepted from registration payload"
-        )
-        assert body.get("role") != "admin", (
-            "Mass assignment: role=admin was accepted from registration payload"
-        )

@@ -17,3 +17,7 @@ FastAPI applications normally expose an ASGI callable directly. Django applicati
 The tests can verify the behavior of the configured application and routes. They cannot verify a reverse proxy, CDN policy, WAF, certificate configuration, production secrets, live third-party identity provider, or an unconfigured route.
 
 A skipped check is not a pass. Record why it was skipped, whether the control applies, and the separate evidence used to cover it.
+
+## Non-destructive test policy
+
+The bundled suite does not create accounts, modify application records, delete records, or execute schema-changing database commands. Test registration, password reset, and other write flows only in an application-owned suite that enforces a disposable database and cleans up every test record.

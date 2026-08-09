@@ -53,7 +53,7 @@ SQLI_PAYLOADS = [
     "' OR 1=1--",
     "admin'--",
     "' UNION SELECT 1,2,3--",
-    "'; DROP TABLE users;--",
+    "' OR EXISTS(SELECT 1)--",
     "1; SELECT * FROM users",
     "' AND SLEEP(5)--",
 ]
