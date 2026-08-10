@@ -6,9 +6,9 @@ Use this checklist before every Skillstore submission. A GitHub push is not a pu
 
 - Run `git rev-parse HEAD` from the repository that contains the skill.
 - Use the full 40-character commit hash in the source URL.
-- Submit this format only: `https://github.com/<owner>/<repository>/tree/<40-character-commit>/<skill-directory>`.
+- Submit this format only: `https://github.com/<lowercase-owner>/<lowercase-repository>/tree/<40-character-commit>/<skill-directory>`.
 - Open the exact URL before submitting. Confirm it shows the intended `SKILL.md`, version, license, scripts, assets, and documentation.
-- Do not submit a branch URL, a short hash, or an unverified path.
+- Do not submit a branch URL, a short hash, a mixed-case owner or repository name, or an unverified path.
 
 ## Preflight
 
