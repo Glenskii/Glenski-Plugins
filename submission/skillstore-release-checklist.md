@@ -4,6 +4,7 @@ Use this checklist before every Skillstore submission. A GitHub push is not a pu
 
 ## Immutable source
 
+- Run `powershell -ExecutionPolicy Bypass -File submission/verify-skillstore-source.ps1 -SourceUrl '<source-url>'` and stop on any error.
 - Run `git rev-parse HEAD` from the repository that contains the skill.
 - Use the full 40-character commit hash in the source URL.
 - Submit this format only: `https://github.com/<lowercase-owner>/<lowercase-repository>/tree/<40-character-commit>/<skill-directory>`.
