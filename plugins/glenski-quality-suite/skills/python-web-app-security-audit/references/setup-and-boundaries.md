@@ -8,6 +8,8 @@ Set route variables only for routes the application actually exposes. The defaul
 
 Configure `TEST_RATE_LIMIT_THRESHOLD` to match the real limit. Set `TEST_ALLOWED_ORIGIN` to an origin the application should accept and `TEST_HOSTILE_ORIGIN` to an origin it must reject.
 
+Set `TEST_ALLOW_ACTIVE_PROBES=true` only after the application owner authorizes an isolated test environment. Active probes include repeated login requests, malformed login payloads, and target-specific authorization checks. Set `TEST_IDOR_TARGET_IDS` and `TEST_IDOR_UNOWNED_ID` only to dedicated records known not to belong to the regular test account.
+
 ## Framework compatibility
 
 FastAPI applications normally expose an ASGI callable directly. Django applications need an ASGI entry point, commonly `project.asgi:application`. Flask needs an ASGI adapter before it can be exercised by this suite.

@@ -3,7 +3,7 @@ name: python-web-app-security-audit
 description: "Run defensive pre-release security tests for Python web applications. Use for FastAPI, Django, Flask, and ASGI services: the common interface between Python web apps and servers. Tests authentication, authorization, hostile input, headers, CORS, cookies, rate limits, errors, and configuration to return evidence-backed findings and clear test boundaries."
 license: MIT
 metadata:
-  version: 1.0.2
+  version: 1.1.0
 ---
 
 # Python Web App Security Audit
@@ -12,7 +12,7 @@ Run a configurable pytest suite against a local Python web application before re
 
 ## Scope
 
-The bundled checks cover authentication, authorization, input validation, response headers, CORS, cookies, rate limits, error handling, HTTP method handling, and unsafe configuration. Read [setup and boundaries](references/setup-and-boundaries.md), [framework adapters](references/framework-adapters.md), and [route configuration](references/route-configuration.md) before adapting the suite to an application.
+The bundled checks cover authentication, authorization, input validation, response headers, CORS, cookies, rate limits, error handling, HTTP method handling, and unsafe configuration. Read [setup and boundaries](references/setup-and-boundaries.md), [framework adapters](references/framework-adapters.md), [route configuration](references/route-configuration.md), [fixture safety](references/fixture-safety.md), and [assertion catalog](references/assertion-catalog.md) before adapting the suite to an application.
 
 Do not represent a passing run as a penetration test or proof of production security. The suite does not verify deployment TLS, a WAF, dependency vulnerabilities, external infrastructure, or controls it cannot reach through the configured test application.
 
@@ -52,7 +52,7 @@ Do not represent a passing run as a penetration test or proof of production secu
 
 ## Report the result
 
-Use [the report template](assets/security-audit-report-template.md) and [release decision guide](docs/release-decision-guide.md). For every finding, state the affected route or control, evidence, severity, recommended fix, and what was not tested. End with one of these release decisions:
+Use [the report template](assets/security-audit-report-template.md), [release decision guide](docs/release-decision-guide.md), and [continuous integration guide](docs/continuous-integration-guide.md). For every finding, state the affected route or control, evidence, severity, recommended fix, and what was not tested. End with one of these release decisions:
 
 - **BLOCKED:** A confirmed issue must be fixed before release.
 - **REVIEW REQUIRED:** A material risk remains and needs an owner decision.
