@@ -1,12 +1,6 @@
 # Universal Software Engineering Audit Specification
 
-**Version:** 2.2
-**Status:** Production audit standard
-**Purpose:** Evidence-based, full-lifecycle software engineering audit standard for human and automated-tool-assisted auditors
-**Updated:** 2026-07-10
-**Supersedes:** Version 2.1
-**License:** CC BY 4.0 - free to use, adapt, and redistribute with attribution
-**Revision purpose:** Closes the remaining determinism gaps: normative control-to-category mapping, complete WARN scoring rules, cross-tier coverage disclosure, and gate-control separation.
+**Version:** 2.2\1**Status:** Production audit standard\1**Purpose:** Evidence-based, full-lifecycle software engineering audit standard for human and AI-assisted auditors\1**Updated:** 2026-07-10\1**Supersedes:** Version 2.1\1**License:** CC BY 4.0 - free to use, adapt, and redistribute with attribution\1**Revision purpose:** Closes the remaining determinism gaps: normative control-to-category mapping, complete WARN scoring rules, cross-tier coverage disclosure, and gate-control separation.
 
 ---
 
@@ -34,14 +28,7 @@ Determine:
 4. Whether release risks are known, evidenced, owned, and proportionate.
 5. Whether improvements have sufficient user, business, security, reliability, compliance, or maintainability value to justify their cost.
 
-Do not guess.
-Do not invent defects.
-Do not manufacture recommendations to fill a quota.
-Do not confuse missing evidence with proof of failure.
-Do not confuse the absence of observed defects with proof of safety.
-Do not soften verified material risk.
-Do not use intimidating language to exaggerate minor issues.
-
+Do not guess.\1Do not invent defects.\1Do not manufacture recommendations to fill a quota.\1Do not confuse missing evidence with proof of failure.\1Do not confuse the absence of observed defects with proof of safety.\1Do not soften verified material risk.\1Do not use intimidating language to exaggerate minor issues.\1
 When evidence is insufficient, state **UNVERIFIED** and identify exactly what would be required to verify it.
 
 ---
@@ -81,7 +68,7 @@ Use the following perspectives as analytical lenses:
 12. Privacy, data governance, and compliance
 13. Supply-chain and dependency assurance
 14. Desktop, mobile, or embedded engineering when applicable
-15. Model-system assurance when applicable
+15. AI system assurance when applicable
 
 These perspectives are not separate reports. Maintain one evidence ledger, consolidate duplicate observations, and produce one coherent set of findings. A finding affecting multiple disciplines must be recorded once and cross-tagged.
 
@@ -182,7 +169,7 @@ Stop immediately when authorization is exceeded, a test may cause material harm,
 - CI/CD and release process
 - External APIs, webhooks, identity providers, and vendors
 - Desktop/mobile packaging and update model where applicable
-- Model providers, tools, data sources, and retrieval systems where applicable
+- AI models, providers, tools, data sources, and retrieval systems where applicable
 
 ### 6.3 Data and Risk Context
 
@@ -444,11 +431,11 @@ Review readability, naming, type safety, error handling, resource cleanup, concu
 
 Differentiate defects from stylistic preferences. A style preference is not a risk finding unless it creates a demonstrated maintenance, correctness, or security consequence.
 
-### 11.11 Generated-Code Risks
+### 11.11 AI-Generated Code Risks
 
 Review for fabricated APIs, nonexistent guarantees, placeholder behavior, copy-pasted vulnerabilities, needless wrappers, excessive configuration, duplicate helpers, misleading comments, magic constants, unused code, prompt duplication, cargo-cult security, weak failure handling, and tests that only restate implementation.
 
-Do not label code as machine-generated without reliable provenance. Report the observable engineering defect, not a guess about authorship.
+Do not label code as AI-generated without reliable provenance. Report the observable engineering defect, not a guess about authorship.
 
 ### 11.12 Dependencies and Software Supply Chain
 
@@ -557,7 +544,7 @@ When applicable, review installer and uninstaller behavior, signing, reputation,
 
 When applicable, review platform permissions, secure storage, transport, deep links, intents, background work, screenshots, backups, rooted/jailbroken device assumptions, app signing, store release, updates, privacy declarations, battery/network use, and lifecycle interruption.
 
-### 11.27 Model and Automated Decision Systems
+### 11.27 AI and Automated Decision Systems
 
 When applicable, review model and provider inventory, prompt and tool boundaries, untrusted-content handling, prompt injection, data leakage, tenant isolation, retrieval permissions, output validation, human review, hallucination consequences, evaluation coverage, model/version drift, fallback behavior, cost controls, abuse controls, auditability, retention, intellectual-property risks, and provider outages.
 
@@ -613,7 +600,7 @@ Select one primary profile and any applicable modifiers before scoring.
 | P3 Data-Sensitive | Health, finance, legal, identity, regulated or highly confidential systems | Security/privacy, architecture/data integrity, reliability/recovery, deployment/supply chain |
 | P4 Desktop/Local Utility | Local-first desktop tools and offline utilities | Quality/correctness, architecture/data integrity, deployment/supply chain, reliability/recovery |
 | P5 Platform/API | APIs, developer platforms, infrastructure services | Security/privacy, reliability/operations, architecture/data integrity, performance/capacity |
-| P6 Model-Assisted | Products with generative models, agents, retrieval, or automated decisions | Security/privacy, quality/correctness, architecture/data integrity, reliability/operations |
+| P6 AI-Assisted | Products with generative AI, agents, retrieval, or automated decisions | Security/privacy, quality/correctness, architecture/data integrity, reliability/operations |
 
 Modifiers include public administration, children or vulnerable users, safety impact, high transaction value, multi-tenancy, administrator concentration, irreversible operations, internationalization, and contractual accessibility obligations.
 
@@ -1051,10 +1038,7 @@ The final judgment must be firm enough to guide a release decision and honest en
 
 ## Appendix A. Versioned Control Catalog
 
-**Catalog Version:** 1.0
-**Status:** Normative minimum catalog
-**Tier notation:** R = Rapid, S = Standard, D = Deep
-**Criticality:** C1 = Supporting, C2 = Important, C3 = Release-critical
+**Catalog Version:** 1.0\1**Status:** Normative minimum catalog\1**Tier notation:** R = Rapid, S = Standard, D = Deep\1**Criticality:** C1 = Supporting, C2 = Important, C3 = Release-critical
 
 Select every applicable control at or below the declared depth. A Standard audit includes R and S controls. A Deep audit includes R, S, and D controls. Profile-critical controls are mandatory regardless of tier. Controls may be added for product-specific risk, but additions require stable local IDs and cannot remove catalog controls from the coverage denominator.
 
@@ -1070,13 +1054,13 @@ Every control scores in exactly one of the nine categories in Section 13.1. Mapp
 | GOV-THREAT-001 | Security and privacy |
 | INF-IAM, INF-NET, INF-TLS, INF-ENV | Security and privacy |
 | DESK-LOCAL-001, MOB-PERM-001 | Security and privacy |
-| MOD-BOUND-001, MOD-INJECT-001, MOD-DATA-001 | Security and privacy |
+| AI-BOUND-001, AI-INJECT-001, AI-DATA-001 | Security and privacy |
 | REL-*, OPS-*, BAK-*, DR-* | Reliability, recovery, and operations |
-| MOD-FAIL-001 | Reliability, recovery, and operations |
+| AI-FAIL-001 | Reliability, recovery, and operations |
 | GOV-RISK-001 | Reliability, recovery, and operations |
 | ARC-*, DATA-* | Architecture and data integrity |
 | CODE-*, QA-* | Quality engineering and correctness |
-| MOD-EVAL-001, MOB-LIFE-001 | Quality engineering and correctness |
+| AI-EVAL-001, MOB-LIFE-001 | Quality engineering and correctness |
 | SUP-*, CICD-* | Deployment and supply chain |
 | INF-IAC-001, INF-PATCH-001 | Deployment and supply chain |
 | DESK-INSTALL-001, DESK-UPDATE-001 | Deployment and supply chain |
@@ -1148,7 +1132,7 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 | CODE-ERR-001 | Errors are handled safely without silent corruption or sensitive leakage | R | C2 | Code paths and induced safe failures verified |
 | CODE-TIME-001 | Time, locale, encoding, and identifier assumptions are controlled | S | C2 | Boundary tests cover applicable zones, locales, and encodings |
 | CODE-CONC-001 | Concurrency and duplicate execution preserve critical invariants | S | C3 | Atomic/idempotent design and representative concurrency tests |
-| CODE-MOD-001 | Generated or assisted code contains no material placeholder or fabricated behavior | S | C2 | Targeted inspection plus build/test/runtime correlation |
+| CODE-AI-001 | Generated or assisted code contains no material placeholder or fabricated behavior | S | C2 | Targeted inspection plus build/test/runtime correlation |
 | SUP-DEP-001 | Production dependencies are locked, inventoried, and vulnerability-assessed | R | C3 | Lockfile/SBOM and validated SCA results tied to release artifact |
 | SUP-DEP-002 | Material dependency findings are assessed for reachability and exposure | S | C2 | Manual triage links vulnerable paths to actual use or non-use |
 | SUP-LIC-001 | Dependency licenses are compatible with intended distribution | S | C2 | Current inventory and reviewed license obligations |
@@ -1226,7 +1210,7 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 | I18N-TEXT-001 | User content supports required language, encoding, plural, and expansion behavior | S | C2 | Locale tests and representative translated layouts |
 | I18N-FMT-001 | Dates, time zones, numbers, names, addresses, and sorting behave for supported locales | S | C2 | Boundary tests across declared locales |
 
-### A.9 Platform-Specific, Model, Documentation, and Retirement
+### A.9 Platform-Specific, AI, Documentation, and Retirement
 
 | Control ID | Objective | Tier | Crit. | Minimum PASS evidence |
 |---|---|---:|---:|---|
@@ -1235,11 +1219,11 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 | DESK-LOCAL-001 | Local files, secrets, IPC, and protocol handlers resist untrusted input | S | C3 | Code/config and representative boundary tests |
 | MOB-PERM-001 | Mobile permissions and secure storage are least privilege | R | C3 | Manifest/config, code paths, and device tests |
 | MOB-LIFE-001 | Interruption, backgrounding, deep links, and backups preserve safety | S | C2 | Device lifecycle and link tests |
-| MOD-BOUND-001 | Model output is treated as untrusted at consequential boundaries | R | C3 | Validation/authorization code and adversarial tests |
-| MOD-INJECT-001 | Untrusted content cannot override protected instructions or tool authority | S | C3 | Prompt/tool boundary review and authorized injection tests |
-| MOD-DATA-001 | Prompts, retrieval, logs, and providers preserve data and tenant boundaries | R | C3 | Data-flow/config review and cross-context negative tests |
-| MOD-EVAL-001 | Model behavior is evaluated against material tasks and harms | S | C2 | Versioned dataset, metrics, thresholds, and current results |
-| MOD-FAIL-001 | Provider/model failure, drift, cost, and uncertainty have bounded behavior | D | C2 | Fallback, monitoring, budget, and induced failure evidence |
+| AI-BOUND-001 | Model output is treated as untrusted at consequential boundaries | R | C3 | Validation/authorization code and adversarial tests |
+| AI-INJECT-001 | Untrusted content cannot override protected instructions or tool authority | S | C3 | Prompt/tool boundary review and authorized injection tests |
+| AI-DATA-001 | Prompts, retrieval, logs, and providers preserve data and tenant boundaries | R | C3 | Data-flow/config review and cross-context negative tests |
+| AI-EVAL-001 | Model behavior is evaluated against material tasks and harms | S | C2 | Versioned dataset, metrics, thresholds, and current results |
+| AI-FAIL-001 | Provider/model failure, drift, cost, and uncertainty have bounded behavior | D | C2 | Fallback, monitoring, budget, and induced failure evidence |
 | DOC-SETUP-001 | Build, setup, configuration, and deployment documentation matches the release | R | C2 | Independent execution or sampled verification |
 | DOC-OPS-001 | Operations, rollback, recovery, security, and support procedures are usable | S | C3 | Current runbooks and exercise/incident evidence |
 | RET-DATA-001 | Closure, export, deletion, retention, and legal holds are controlled | S | C2 | Procedure plus authorized lifecycle test |
@@ -1260,18 +1244,7 @@ Where a named exception conflicts with a prefix rule, the exception controls. Th
 
 ### B.1 Finding Example
 
-**Finding:** `AUD-APP-20260710-001-F003 - Cross-tenant invoice access`
-**Control:** `SEC-AUTHZ-001`
-**Status:** FAIL
-**Severity:** High
-**Likelihood:** Medium
-**Confidence:** High
-**Evidence:** Authorized Tenant B account retrieved Tenant A invoice by changing the object identifier; reproduced twice in staging; server route lacked tenant scope.
-**Impact:** Confidential commercial and personal billing information could be disclosed across tenants.
-**Preferred fix:** Resolve invoices through the authenticated tenant relationship and return a non-disclosing denial for mismatches.
-**Alternative:** Temporary gateway denial for the affected route plus feature disablement until server-side scoping is deployed.
-**Verification:** Repeat authorized cross-tenant reads, updates, exports, and enumeration attempts; confirm denial and protected audit event.
-**Score effect:** Control receives 1 point at C3 weight. Security/privacy category is capped at 4.9 while the High FAIL remains unresolved.
+**Finding:** `AUD-APP-20260710-001-F003 - Cross-tenant invoice access`\1**Control:** `SEC-AUTHZ-001`\1**Status:** FAIL\1**Severity:** High\1**Likelihood:** Medium\1**Confidence:** High\1**Evidence:** Authorized Tenant B account retrieved Tenant A invoice by changing the object identifier; reproduced twice in staging; server route lacked tenant scope.\1**Impact:** Confidential commercial and personal billing information could be disclosed across tenants.\1**Preferred fix:** Resolve invoices through the authenticated tenant relationship and return a non-disclosing denial for mismatches.\1**Alternative:** Temporary gateway denial for the affected route plus feature disablement until server-side scoping is deployed.\1**Verification:** Repeat authorized cross-tenant reads, updates, exports, and enumeration attempts; confirm denial and protected audit event.\1**Score effect:** Control receives 1 point at C3 weight. Security/privacy category is capped at 4.9 while the High FAIL remains unresolved.
 
 ### B.2 Category Example
 

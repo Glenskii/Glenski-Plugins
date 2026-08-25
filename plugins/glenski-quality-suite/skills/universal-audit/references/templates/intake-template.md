@@ -41,7 +41,7 @@ never assumed. Spec Section 6 is normative.
 - CI/CD and release process:
 - External APIs, webhooks, identity providers, vendors:
 - Desktop/mobile packaging and update model (if applicable):
-- Model providers, tools, and retrieval systems (if applicable):
+- AI models, providers, tools, retrieval systems (if applicable):
 
 ## Data and risk context
 
