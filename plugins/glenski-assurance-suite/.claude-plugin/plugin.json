@@ -16,5 +16,9 @@
     "browser-compatibility",
     "session-handoff",
     "editing"
-  ]
+  ],
+  "documentationUrl": "https://github.com/Glenskii/Glenski-Plugins/blob/main/plugins/glenski-assurance-suite/README.md",
+  "privacyPolicyUrl": "https://github.com/Glenskii/Glenski-Plugins/blob/main/plugins/glenski-assurance-suite/README.md#privacy-and-scope",
+  "supportUrl": "https://github.com/Glenskii/Glenski-Plugins/blob/main/SUPPORT.md",
+  "termsOfServiceUrl": "https://github.com/Glenskii/Glenski-Plugins/blob/main/TERMS.md"
 }
