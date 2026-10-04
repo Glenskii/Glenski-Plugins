@@ -18,7 +18,6 @@ Six portable skills for developers who want clear evidence and stated limits bef
 - **Instructions:** every skill loads only when its description matches your request.
 - **Local scripts:** `human-writer` includes a rule checker that reads a file you point it at. `task-state-ledger` includes `memctl.py` and `write_evidence.py`, which write Markdown files inside the project folder you choose. Both reject common secret patterns, and `memctl.py init` never overwrites an existing file. `write_evidence.py` replaces an evidence record that uses the same node ID.
 - **Security tests:** `python-web-app-security-audit` includes a setup script that copies a pytest suite into your project and refuses to overwrite an existing suite folder. The tests import your own application and call it in-process. They send no requests to outside hosts themselves, but your application runs as it normally would.
-- **Image builders:** `save-context` and `universal-audit` include small Python scripts in `assets/` that regenerate their listing images. The skills do not use them.
 - **Browser checks:** `cross-platform-compliance` includes an optional PowerShell script. When you run it, it installs Playwright and axe-core with npm, downloads the browsers you name, and loads the URL you give it. Nothing here runs unless you start it.
 - **Data sent anywhere:** none. The plugin contains no credentials, analytics, or telemetry.
 
