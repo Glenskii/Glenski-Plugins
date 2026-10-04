@@ -5,10 +5,10 @@
   },
   "plugins": [
     {
-      "name": "glenski-quality-suite",
+      "name": "glenski-assurance-suite",
       "source": {
         "source": "local",
-        "path": "./plugins/glenski-quality-suite"
+        "path": "./plugins/glenski-assurance-suite"
       },
       "policy": {
         "installation": "AVAILABLE",

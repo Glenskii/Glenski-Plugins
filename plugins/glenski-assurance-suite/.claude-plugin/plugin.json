@@ -1,0 +1,20 @@
+{
+  "name": "glenski-assurance-suite",
+  "version": "0.2.0",
+  "description": "Evidence-led skills for release assurance, defensive security checks, frontend compatibility, session handoff, and natural-voice editing.",
+  "author": {
+    "name": "Glen E. Grant",
+    "url": "https://profile.glenegrant.com"
+  },
+  "homepage": "https://profile.glenegrant.com",
+  "repository": "https://github.com/Glenskii/Glenski-Plugins",
+  "license": "MIT",
+  "keywords": [
+    "release-assurance",
+    "security-audit",
+    "accessibility",
+    "browser-compatibility",
+    "session-handoff",
+    "editing"
+  ]
+}

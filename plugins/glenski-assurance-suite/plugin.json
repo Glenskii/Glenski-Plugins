@@ -1,0 +1,19 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "glenski-assurance-suite",
+  "version": "0.2.0",
+  "description": "Evidence-led developer skills for release, security, content, and frontend quality.",
+  "author": {
+    "name": "Glen E. Grant",
+    "url": "https://profile.glenegrant.com"
+  },
+  "homepage": "https://profile.glenegrant.com",
+  "repository": "https://github.com/Glenskii/Glenski-Plugins",
+  "license": "MIT",
+  "keywords": [
+    "browser-compatibility",
+    "accessibility",
+    "responsive-qa",
+    "release-readiness"
+  ]
+}

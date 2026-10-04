@@ -2,7 +2,7 @@
 
 Last updated: August 7, 2026
 
-Glenski Assurance Suite is provided under the CC BY 4.0 license. You may use, adapt, and share the package under that license.
+Glenski Assurance Suite is provided under the MIT license. You may use, adapt, and share the package under that license.
 
 The skills provide guidance, checklists, and local test resources. They do not replace professional security, accessibility, legal, compliance, or engineering review. You are responsible for reviewing outputs, testing changes, and deciding whether software is safe to release.
 
